@@ -1,40 +1,44 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.14.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+  "name": "tr46",
+  "version": "5.1.1",
+  "engines": {
+    "node": ">=18"
   },
+  "description": "An implementation of the Unicode UTS #46: Unicode IDNA Compatibility Processing",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "node --test",
+    "lint": "eslint",
+    "pretest": "node scripts/getLatestTests.js",
+    "prepublish": "node scripts/generateMappingTable.js && node scripts/generateRegexes.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": "https://github.com/jsdom/tr46",
+  "keywords": [
+    "unicode",
+    "tr46",
+    "uts46",
+    "punycode",
+    "url",
+    "whatwg"
+  ],
+  "author": "Sebastian Mayr <npm@smayr.name>",
+  "contributors": [
+    "Timothy Gu <timothygu99@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "punycode": "^2.3.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "devDependencies": {
+    "@domenic/eslint-config": "^4.0.1",
+    "@unicode/unicode-16.0.0": "^1.6.5",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "regenerate": "^1.4.2"
+  },
+  "unicodeVersion": "16.0.0"
 }
